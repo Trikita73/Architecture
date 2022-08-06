@@ -47,7 +47,7 @@ body {
     gap: var(--gap);
     transform: scale(8.2); 
     will-change: transform;
-    transition: transform 1s ease cubic-bezier(.75, 1, .25, 1), opacity 1s;
+    transition: transform 1s cubic-bezier(.075, 1, .25, 1), opacity 1s;
 }
 
 .gallery__item {
@@ -66,10 +66,51 @@ body {
     display: block;
 }
 
-.loaded.gallery {
+.loaded .gallery {
     opacity: 1;
 }
 
 .loaded .header span {
     opacity: 0;
 }
+
+/* DARK MODE OS */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--color-dark);
+    }
+    .header {
+        filter: invert(100%);
+    }
+}
+
+
+/* MOBILE */
+
+/*
+
+@media (max-width : 992px) {
+
+	.header {
+		position: relative;
+	}
+
+	body {
+		overflow: scroll;
+		display: block;
+		padding: var(--gap);
+	}
+
+	.gallery {
+		width: 100%;
+		column-width: 10em;
+		transform: scale(1);
+	}
+	.gallery__item:hover {
+		transform: scale(1);
+	}
+
+}
+
+*/
