@@ -6,14 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Architecture</title>
     <link rel="icon" href="img/favicon/favicon.ico">
+    
+    <link rel="stylesheet" href="libs/PhotoSwipe/photoswipe.css">
     <link rel="stylesheet" href="css/main.css">
 
     <script src="libs/gsap.min.js" defer></script>
     <script src="libs/Draggable.min.js" defer></script>
     <script src="libs/InertiaPlugin.min.js" defer></script>
     
-    <script src="js/app.js" defer></script>
-    <script src="js/import.js" type="module" defer></script>
+    <script src="js/app.js" type="module" defer></script>
+
+    <!-- include PhotoSwipe -->
+    <script type="module">
+        import Lightbox from './libs/PhotoSwipe/photoswipe-lightbox.esm.min.js';
+        const lightbox = new Lightbox({
+            gallery: '.gallery',
+            children: '.gallery__item',
+            pswpModule: () => import('./libs/PhotoSwipe/photoswipe.esm.min.js')
+        });
+        lightbox.init();
+    </script>
 
     <!-- Preloader css -->
     <style>
